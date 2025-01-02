@@ -1,0 +1,4 @@
+flask==2.0.1
+paho-mqtt==1.6.1
+PyYAML==6.0
+requests==2.31.0 

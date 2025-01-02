@@ -1,0 +1,61 @@
+{
+  "name": "[BETA]COMMAX Wallpad Addon by ew11-mqtt",
+  "version": "1.5.10m",
+  "slug": "commax-beta",
+  "url": "https://github.com/sdlckdrl/HAaddons",
+  "description": "mqtt 통신을 활용한 코맥스 월패드 컨트롤러",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "map": [
+    "share:rw"
+  ],
+  "startup": "application",
+  "boot": "auto",
+  "init": false,
+  "hassio_api": true,
+  "auth_api": true,
+  "options": {
+    "DEBUG": false, 
+    "mqtt_log": false,
+    "elfin_log": false,
+    "vendor": "commax",
+    "queue_interval_in_second": "0.1",
+    "max_send_count" : 15,
+    "min_receive_count" : 1,
+    "climate_min_temp": 5,
+    "climate_max_temp": 40,
+    "mqtt_server": "192.168.0.39",
+    "mqtt_id": "my_user",
+    "mqtt_password": "m1o@s#quitto",
+    "mqtt_TOPIC": "commax",
+    "elfin_auto_reboot": true,
+    "elfin_server": "192.168.0.38",
+    "elfin_id": "admin",
+    "elfin_password": "admin",
+    "elfin_reboot_interval": 60
+  },
+  "schema": {
+    "DEBUG": "bool",
+    "mqtt_log": "bool",
+    "elfin_log": "bool",
+    "vendor": "list(commax|custom)",
+    "queue_interval_in_second": "float(0.01,1.0)",
+    "max_send_count": "int(1,99)",
+    "min_receive_count": "int(1,9)",
+    "climate_min_temp": "int(0,19)",
+    "climate_max_temp": "int(20,99)",
+    "mqtt_server": "match(^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$)",
+    "mqtt_id": "str",
+    "mqtt_password": "str",
+    "mqtt_TOPIC": "str",
+    "elfin_auto_reboot": "bool",
+    "elfin_server": "match(^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$)?",
+    "elfin_id": "str?",
+    "elfin_password": "str?",
+    "elfin_reboot_interval": "int"
+  },
+  "ingress": true,
+  "ingress_port": 8099,
+  "ports": {
+    "8099/tcp": null
+  }
+}
